@@ -18,3 +18,35 @@ def sum_three(nums):
 
 nums = [-1,0,1,2,-1,-4]
 print(sum_three(nums))
+
+
+# two pointers
+
+def sum_three(nums):
+    nums.sort()
+    M=set()
+    for i in range(len(nums)-2):
+            left=i+1
+            right = len(nums)-1
+            while left< right:
+                total = nums[left]+nums[right]+nums[i]
+                if total ==0:
+                    x = [nums[i],nums[left],nums[right]]
+                    M.add(tuple(x))
+                    while left<right and nums[left] == nums[left+1]:
+                        left = left+1
+                    while left<right and  nums[right] == nums[right-1]:
+                        right = right-1  
+                    left+=1
+                    right-=1    
+                elif total<0:
+                    left = left+1
+                        
+            
+                else:
+                    right = right-1
+    return list(M) 
+
+
+nums = [-1,0,1,2,-1,-4]
+print(sum_three(nums))
