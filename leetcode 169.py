@@ -5,8 +5,8 @@ def majority_elements(nums):
     count = 0
     mid = len(nums)//2
     for i in range(len(nums)):
-        if mid>count:
-            count+=1
+        # if mid>count:
+            # count+=1
             return nums[mid]
         
 # check 
