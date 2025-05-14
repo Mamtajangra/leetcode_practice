@@ -1,3 +1,11 @@
+'''
+Input: original = [1,2,3,4], m = 2, n = 2
+Output: [[1,2],[3,4]]
+Explanation: The constructed 2D array should contain 2 rows and 2 columns.
+The first group of n=2 elements in original, [1,2], becomes the first row in the constructed 2D array.
+The second group of n=2 elements in original, [3,4], becomes the second row in the constructed 2D array.
+'''
+
 def one_to_2d(original,m,n):
     if len(original)!= m*n:   ## check length is equal to m*n
         return []           
@@ -17,9 +25,10 @@ n = 2
 print(one_to_2d(original,m,n))    
 
 
-                                                          # or 
+                                                          # or
+                                                           
 '''matrix length should m*n and create subarray temporary n=0
-loop in original and append the elements in subarray if tn<n.Moreover,if tn==nmeans no more space to append then 
+loop in original and append the elements in subarray if tn<n.Moreover,if tn==n means no more space to append then 
 append subarray to N for fresh values we need tn=0 again at last return N '''
 
 def one_to_two_d(original,m,n):
