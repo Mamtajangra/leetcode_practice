@@ -20,3 +20,18 @@ def majority_elements(nums):
 # check 
 nums =[2,2,1,1,1,2,2]
 print(majority_elements(nums))    
+
+
+# hash map 
+def majority_elements1(nums):
+    seen = dict()
+    for num in nums:
+        if num in seen:
+            seen[num]+=1
+        else:
+            seen[num]=1
+        if seen[num] > len(nums)//2:
+             return num
+
+nums =[2,2,1,1,1,2,2]
+print(majority_elements1(nums))    
