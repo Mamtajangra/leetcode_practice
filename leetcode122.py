@@ -12,11 +12,10 @@ Then buy on day 4 (price = 3) and sell on day 5 (price = 6), profit = 6-3 = 3.
 Total profit is 4 + 3 = 7.
 '''
 def total_profit(prices):
-    maxi = 0
     result = 0
-    for i in range(len(prices)):
+    for i in range(1,len(prices)):
         profit = prices[i] - prices[i-1]
-        if profit>maxi:
+        if profit>0:
             result = result + profit
     return result 
 
