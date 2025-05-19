@@ -11,18 +11,7 @@ Explanation: Buy on day 2 (price = 1) and sell on day 3 (price = 5), profit = 5-
 Then buy on day 4 (price = 3) and sell on day 5 (price = 6), profit = 6-3 = 3.
 Total profit is 4 + 3 = 7.
 '''
-def total_profit(prices):
-    result = 0
-    for i in range(1,len(prices)):
-        profit = prices[i] - prices[i-1]
-        if profit>0:
-            result = result + profit
-    return result 
-
-
-
-prices = [7,1,5,3,6,4]
-print(total_profit(prices))
+# /
 
 
 
@@ -42,3 +31,31 @@ def max_profit1(prices):
 
 prices=[7,1,5,3,6,4]
 print(max_profit1(prices))
+
+
+# optimum
+
+def max_profit2(prices):
+       min_buy = prices[0]   ## initialize first element is minimum
+       max_profit = 0
+       sell_price = 0
+       total_profit = 0
+       for price in prices:    ##searching over array if price < min then set it to min
+        if price < min_buy:
+            min_buy = price
+        profit = price - min_buy    ## profit = subtraction of minimu from price
+        if profit > max_profit:      ## if profit > max it mention in question set it to the sell price
+            sell_price = price
+            max_profit = profit
+
+
+            min_buy = price         ## min = price , max_profit = profit 
+            max_profit = profit 
+            total_profit = total_profit + max_profit   
+
+            max_profit = 0
+       return total_profit
+
+
+prices=[7,1,5,3,6,4]
+print(max_profit2(prices))
