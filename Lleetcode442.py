@@ -9,12 +9,12 @@ Output: [2,3]
 # brute force 
 def all_duplicate(nums):
     nums.sort()      ## optional 
-    M = []
+    M = set()
     for i in range(len(nums)):
         for j in range(i+1,len(nums)):
             if nums[i] == nums[j]:
-                M.append(nums[i])
-    return M   
+                M.add(nums[i])
+    return list(M)   
 
 
 nums = [4,3,2,7,8,2,3,3,1]        
@@ -27,11 +27,11 @@ print(all_duplicate(nums))         ## not working for large data
 
 def all_duplicate2(nums):
     nums.sort()      ## optional 
-    M = []
+    M = set()
     for i in range(len(nums)-1):
             if nums[i] == nums[i+1]:
-                M.append(nums[i])
-    return M   
+                M.add(nums[i])
+    return list(M)   
 
 
 nums = [4,3,2,7,8,2,3,3,1]        
@@ -54,3 +54,19 @@ def all_duplicate_gen(nums):
 
 nums = [4,3,2,7,8,2,3,3,1]        
 print(all_duplicate_gen(nums))          
+
+
+def all_duplicate_gen4(nums):
+    seen = dict()
+    M = set()
+    for num in nums:
+        if num in seen:
+            seen[num] += 1
+        else:
+            seen[num] = 1
+        if seen[num] > 1:
+            M.add(num)
+    return list(M)  
+
+nums = [4,3,2,7,8,2,3,3,1]        
+print(all_duplicate_gen4(nums))                   

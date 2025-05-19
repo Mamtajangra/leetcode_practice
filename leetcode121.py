@@ -26,7 +26,7 @@ print(max_profit1(prices))
 
 
 
-def max_profit(prices):
+def max_profit2(prices):
     M = []
     n = len(prices)                               ## o(n**2) 
     for i in range(n):
@@ -38,22 +38,22 @@ def max_profit(prices):
 
 
 prices =[7,1,5,3,6,4] 
-print(max_profit(prices))
+print(max_profit2(prices))
 
 
 
 # or 
 
-# def max_profit(prices):
-#     maxi = 0
-#     n = len(prices)
-#     for i in range(n):
-#         for j in range(i+1,n):
-#             profit = prices[j]-prices[i]
-#             if profit>maxi:                                ## o(n**2) 
-#                 maxi = profit
-#     return maxi 
+def max_profit3(prices):
+    maxi = 0
+    n = len(prices)
+    for i in range(n):
+        for j in range(i+1,n):
+            profit = prices[j]-prices[i]
+            if profit>maxi:                                ## o(n**2) 
+                maxi = profit
+    return maxi 
 
 
-# prices =[7,1,5,3,6,4] 
-# print(max_profit(prices))
+prices =[7,1,5,3,6,4] 
+print(max_profit3(prices))
