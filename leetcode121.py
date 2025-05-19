@@ -11,9 +11,24 @@ Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-
 Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
 '''
 
+def max_profit1(prices):
+    min_buy = prices[0]                      ##initialize first element is minimum
+    max_profit = 0
+    for price in prices:
+        if price <  min_buy:
+            min_buy = price                ##0(n)
+        profit = price - min_buy
+        if profit > max_profit:
+            max_profit = profit
+    return max_profit
+prices =[7,1,5,3,6,4] 
+print(max_profit1(prices))           
+
+
+
 def max_profit(prices):
     M = []
-    n = len(prices)
+    n = len(prices)                               ## o(n**2) 
     for i in range(n):
         for j in range(i+1,n):
             x = prices[j]-prices[i]
@@ -35,7 +50,7 @@ print(max_profit(prices))
 #     for i in range(n):
 #         for j in range(i+1,n):
 #             profit = prices[j]-prices[i]
-#             if profit>maxi:
+#             if profit>maxi:                                ## o(n**2) 
 #                 maxi = profit
 #     return maxi 
 
