@@ -8,7 +8,7 @@ Output: [2,3]
 '''
 # brute force 
 def all_duplicate(nums):
-    nums.sort()      ## optional 
+    nums.sort()      ## optional                             having more tha two duplicates
     M = set()
     for i in range(len(nums)):
         for j in range(i+1,len(nums)):
@@ -58,15 +58,16 @@ print(all_duplicate_gen(nums))
 
 def all_duplicate_gen4(nums):
     seen = dict()
-    M = set()
+    M = []
     for num in nums:
         if num in seen:
             seen[num] += 1
         else:
             seen[num] = 1
-        if seen[num] > 1:
-            M.add(num)
-    return list(M)  
+    for num,count in seen.items():     ## MORE THAN TWO DUPLICATES
+            if  count > 1:
+                M.append(num)
+    return M 
 
-nums = [4,3,2,7,8,2,3,3,1]        
+nums = [4,3,2,7,8,2,3,3,1,2,2,2,2,6,5,5,5]        
 print(all_duplicate_gen4(nums))                   
