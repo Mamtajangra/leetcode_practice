@@ -23,4 +23,29 @@ def subarray_sum(nums,k):
 
 nums = [4,5,0,-2,-3,1]
 k = 5  
-print(subarray_sum(nums,k))       
+print(subarray_sum(nums,k))               ## o(n**2)
+
+
+
+def subarray_sum1(nums,k):
+    count = 0
+    prefix_sum = 0
+    count_sub = {0:1}          ## by default to hadle case of 0
+    for i in range(len(nums)):
+        prefix_sum = prefix_sum + nums[i]
+# if target in dict increase count 
+        if prefix_sum % k in count_sub:
+            count  = count + count_sub[prefix_sum % k]
+
+# simple dictionary condition 
+        if prefix_sum % k in count_sub:
+            count_sub[prefix_sum % k] += 1
+        else:
+            count_sub[prefix_sum % k] = 1
+    return count
+
+    
+nums = [4,5,0,-2,-3,1]
+k = 5  
+print(subarray_sum1(nums,k))  
+
