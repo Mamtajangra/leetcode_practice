@@ -22,4 +22,26 @@ def subarray_sum(nums,k):
 
 nums = [1,1,1]
 k = 2
-print(subarray_sum(nums,k))
+print(subarray_sum(nums,k))       ## o(n**2)
+
+
+# prefix and hash 
+
+def subarray_sum1(nums,k): 
+    count = 0
+    prefix_sum = 0
+    count_sub = {0:1}                 ## by default to handle the case 7-7 = 0
+    for num in range(len(nums)):
+        prefix_sum = prefix_sum + nums[num]
+        if (prefix_sum - k) in count_sub:                      ## check prefix sum - target sum in dict increase count if yes 
+             count = count + count_sub[prefix_sum - k]
+        if prefix_sum in count_sub:                       ## simple case of hash map
+             count_sub[prefix_sum] += 1
+        else:
+             count_sub[prefix_sum] = 1
+    return count  
+
+# check 
+nums = [1,1,1]
+k = 2
+print(subarray_sum1(nums,k))  
