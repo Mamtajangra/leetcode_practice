@@ -32,19 +32,26 @@ print(most_water(height))
 
 ''' The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water (blue section) the container can contain is 49.'''
 # two pointer
+
+
+ # use two pointer
+        #calculate area
+        # max_area
+        # move left, right according to max_area 
+
 def most_water1(height):
-    maximum=0
-    left =0
+    maximum = 0
+    left = 0
     right = len(height)-1
     while left < right:
         w = right - left
         h = min(height[left],height[right])
-        area = w*h 
-        maximum= max(maximum,area)
+        area = w * h 
+        maximum = max(maximum,area)
         if height[left] < height[right]:
-             left+=1
+             left += 1
         else:
-             right-=1
+             right -= 1
     return maximum  
 
 
