@@ -35,10 +35,10 @@ def subarray_sum1(nums,k):
         prefix_sum = prefix_sum + nums[num]
         if (prefix_sum - k) in count_sub:                      ## check prefix sum - target sum in dict increase count if yes 
              count = count + count_sub[prefix_sum - k]
-        if prefix_sum in count_sub:                       ## simple case of hash map
+        if prefix_sum in count_sub:                       ## simple case of hash map( move to next value)
              count_sub[prefix_sum] += 1
         else:
-             count_sub[prefix_sum] = 1
+             count_sub[prefix_sum] = 1               ## if not initialize it unique 
     return count  
 
 # check 
