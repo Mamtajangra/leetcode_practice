@@ -27,8 +27,6 @@ def four_sum(nums,target):
 
             '''check three conditions like total == target,<target,>targetbut one condition arise between
             if num left == its next element so skip that similarly for right'''
-
-
             while left< right:
                 total = nums[i]+nums[j]+nums[left]+nums[right]
                 x = [nums[i],nums[j],nums[left],nums[right]]
