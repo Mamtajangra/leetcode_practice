@@ -9,6 +9,10 @@ Output: 2, nums = [1,2,_]
 Explanation: Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively.
 It does not matter what you leave beyond the returned k (hence they are underscores).'''
 # we want to find uniue element present initially in nums 
+
+
+## firstly we convert nums in set then list
+## slicing from previous element 
 def remove_duplicate(nums):
     nums1 = list(set(nums))
     # slicing to get unique elements in left side 
