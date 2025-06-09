@@ -23,9 +23,16 @@ print(two_sum(nums,target))
 
 
 # hash map 
-def two_sum(nums,target):
+def two_sum1(nums,target):
     i = 0
     seen = {}
     for i,value in enumerate(nums):
         compliment = target - value
-        if 
+        if compliment in seen:
+            return [i,seen[compliment]]
+        else:
+            seen[value] = i
+
+nums = [2,7,11,15]
+target = 9
+print(two_sum1(nums,target))            
