@@ -24,3 +24,18 @@ def anagram(s,t):
 s = "anagram"
 t = "nagaram"
 print(anagram(s,t))
+
+
+# or  
+def anagram1(s,t):
+    s = sorted(s)
+    t = sorted(t)
+    if s == t:
+         return True
+    else:
+         return False
+
+
+s = "rat"
+t = "car"
+print(anagram(s,t))    
