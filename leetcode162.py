@@ -30,5 +30,26 @@ def peak_element(nums):
 
 # check 
 nums = [1,2,3,1]
-print(peak_element(nums))              
+print(peak_element(nums))   
+
+
+
+def peak_element1(nums):
+    if len(nums) == 1:
+            return 0
+        
+    if nums[1] < nums[0]:
+                return 0
+    if nums[len(nums)-2] < nums[len(nums)-1]:
+
+                return len(nums)-1    
+
+    for i  in range(1,len(nums)-1):
+            if nums[i] > nums[i+1] and nums[i-1]< nums[i]:
+                return i
+            
+
+    # check 
+nums = [1,2,3,1]
+print(peak_element1(nums))           
         
