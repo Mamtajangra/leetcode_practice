@@ -11,15 +11,13 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 # we want to find uniue element present initially in nums 
 
 
-
-## firstly we convert nums in set then list
-## slicing from previous element 
 def remove_duplicate(nums):
-    nums1 = list(set(nums))
-    # slicing to get unique elements in left side 
-    nums[:len(nums1)] = nums1
-    return nums1
-
+    j = 0
+    for i in range(1,len(nums)):
+        if nums[j] != nums[i]:
+            j = j+1
+            nums[j] = nums[i]
+    return j+1        
 # check 
 nums = [0,0,1,1,1,2,2,3,3,4]
 print(remove_duplicate(nums))
