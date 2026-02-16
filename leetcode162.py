@@ -51,5 +51,31 @@ def peak_element1(nums):
 
     # check 
 nums = [1,2,3,1]
-print(peak_element1(nums))           
+print(peak_element1(nums))        
+
+# 3rd one optiml solution
+
+def findPeakElement(nums):
+        # use binary search
+        # select left and right .Apply while loop
+        # find mid
+        # check mid is greater than its next term,if yes then right shift to that mid (because i want to find out the term which is greater from its next one)
+        # if less mid is less from its next one then move left to term next from mid (beause mid is also short i need large one) 
+        # i need shorter < greater < shorter
+        left = 0
+        right = len(nums) -1
+        while left < right:
+            mid = (left + right)//2
+            if nums[mid] > nums[mid+1]:
+                right = mid
+            else:
+                left = mid +1
+        return left  
+
+nums = [1,2,5,4,6,2,9]
+print(findPeakElement(nums))
+
+      
+       
+
         
